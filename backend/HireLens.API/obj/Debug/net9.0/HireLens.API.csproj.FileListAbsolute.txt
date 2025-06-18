@@ -1,0 +1,8 @@
+C:\Users\asoga\Documents\HireLens\backend\HireLens.API\obj\Debug\net9.0\HireLens.API.csproj.AssemblyReference.cache
+C:\Users\asoga\Documents\HireLens\backend\HireLens.API\obj\Debug\net9.0\HireLens.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\asoga\Documents\HireLens\backend\HireLens.API\obj\Debug\net9.0\HireLens.API.AssemblyInfoInputs.cache
+C:\Users\asoga\Documents\HireLens\backend\HireLens.API\obj\Debug\net9.0\HireLens.API.AssemblyInfo.cs
+C:\Users\asoga\Documents\HireLens\backend\HireLens.API\obj\Debug\net9.0\HireLens.API.csproj.CoreCompileInputs.cache
+C:\Users\asoga\Documents\HireLens\backend\HireLens.API\obj\Debug\net9.0\HireLens.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\asoga\Documents\HireLens\backend\HireLens.API\obj\Debug\net9.0\HireLens.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\asoga\Documents\HireLens\backend\HireLens.API\obj\Debug\net9.0\HireLens.API.sourcelink.json
