@@ -1,25 +1,36 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans, sans-serif);
-  --font-mono: var(--font-geist-mono, monospace);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-primary: #1a73e8;
+  --color-primary-dark: #1557b0;
+  --color-accent: #34a853;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
+  @apply bg-slate-50 text-slate-900 antialiased;
+}
+
+@layer components {
+  .input {
+    @apply mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-primary focus:ring-primary;
+  }
+  .label {
+    @apply text-sm font-medium text-slate-700;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 disabled:opacity-60;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center rounded-md border border-red-200 bg-white px-4 py-2 text-sm font-medium text-red-700 hover:bg-red-50;
+  }
+  .card {
+    @apply rounded-lg border border-slate-200 bg-white p-6 shadow-sm;
+  }
 }

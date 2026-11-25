@@ -1,35 +1,49 @@
-using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HireLens.API.Models
 {
+    public enum ApplicationStatus
+    {
+        Wishlist,
+        Applied,
+        Interviewing,
+        Offer,
+        Rejected,
+        Withdrawn
+    }
+
     public class JobApplication
     {
-        [Key]
         public int Id { get; set; }
 
-        [Required]
-        public string? JobTitle { get; set; }
+        [Required, MaxLength(200)]
+        public string JobTitle { get; set; } = string.Empty;
 
-        [Required]
-        public string? Company { get; set; }
+        [Required, MaxLength(200)]
+        public string Company { get; set; } = string.Empty;
 
+        [MaxLength(200)]
         public string? Location { get; set; }
 
+        [MaxLength(2048)]
         public string? JobLink { get; set; }
 
-        public DateTime AppliedDate { get; set; } = DateTime.UtcNow;
+        // Pasted job posting text. Used as context for AI generation.
+        public string? JobDescription { get; set; }
 
-        public string Status { get; set; } = "Applied"; // Applied, Interview, Offer, Rejected, etc.
+        public ApplicationStatus Status { get; set; } = ApplicationStatus.Applied;
+
+        public DateTime? AppliedDate { get; set; }
 
         public string? Notes { get; set; }
 
-        // Optional: Add a foreign key to the user who owns this application
-        [Required]
-        public string? AppUserId { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
-        [ForeignKey("AppUserId")]
+        [Required]
+        public string AppUserId { get; set; } = string.Empty;
         public AppUser? AppUser { get; set; }
+
+        public ICollection<GeneratedDocument> Documents { get; set; } = new List<GeneratedDocument>();
     }
 }

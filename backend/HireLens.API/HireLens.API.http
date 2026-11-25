@@ -1,6 +1,32 @@
-@HireLens.API_HostAddress = http://localhost:5297
+@host = http://localhost:5297
+@token = paste-token-from-login-here
 
-GET {{HireLens.API_HostAddress}}/weatherforecast/
-Accept: application/json
+### Register
+POST {{host}}/api/auth/register
+Content-Type: application/json
 
-###
+{ "email": "test@example.com", "password": "password123", "fullName": "Test User" }
+
+### Login
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{ "email": "test@example.com", "password": "password123" }
+
+### List applications
+GET {{host}}/api/applications
+Authorization: Bearer {{token}}
+
+### Create application
+POST {{host}}/api/applications
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "jobTitle": "Software Engineer", "company": "Acme", "status": "Applied", "jobDescription": "C#, React, PostgreSQL" }
+
+### Generate interview prep for application 1
+POST {{host}}/api/applications/1/documents
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "type": "InterviewPrep" }
